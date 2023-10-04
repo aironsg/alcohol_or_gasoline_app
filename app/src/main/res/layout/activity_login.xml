@@ -37,7 +37,9 @@
         app:hintTextColor="@color/orange"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/container_top">
+        app:layout_constraintTop_toBottomOf="@id/container_top"
+
+        >
 
         <androidx.appcompat.widget.AppCompatEditText
             android:id="@+id/edit_email"

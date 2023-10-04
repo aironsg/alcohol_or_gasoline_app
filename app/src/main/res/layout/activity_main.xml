@@ -40,7 +40,6 @@
         android:src="@drawable/ic_account"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-
         app:layout_constraintTop_toTopOf="@id/txt_title_app" />
 
     <com.google.android.material.textfield.TextInputLayout
@@ -50,7 +49,6 @@
         android:layout_marginStart="20dp"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="10dp"
-        android:background="@drawable/background_edit_text"
         app:hintAnimationEnabled="true"
         app:hintTextColor="@color/orange"
         app:layout_constraintHorizontal_weight="1"
@@ -60,10 +58,11 @@
 
         <androidx.appcompat.widget.AppCompatEditText
             android:id="@+id/edit_price_gasoline"
+        android:background="@drawable/background_edit_text"
             android:layout_width="match_parent"
-            android:layout_height="48dp"
-            android:layout_marginTop="16dp"
+            android:layout_height="wrap_content"
             android:hint="@string/txt_price_gasoline"
+            android:maxLength="5"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toLeftOf="@+id/txt_alcohol"
             app:layout_constraintTop_toBottomOf="@id/img_avatar" />
@@ -76,7 +75,6 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="10dp"
         android:layout_marginEnd="20dp"
-        android:background="@drawable/background_edit_text"
         app:hintAnimationEnabled="true"
         app:hintTextColor="@color/orange"
         app:layout_constraintHorizontal_weight="1"
@@ -87,7 +85,8 @@
         <androidx.appcompat.widget.AppCompatEditText
             android:id="@+id/edit_price_alcohol"
             android:layout_width="match_parent"
-            android:layout_height="48dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/background_edit_text"
             android:hint="@string/txt_alcohol"
             app:layout_constraintLeft_toRightOf="@+id/txt_price_gasoline"
             app:layout_constraintRight_toRightOf="parent"
@@ -147,14 +146,13 @@
         android:text="@string/btn_save"
         android:textColor="@color/black"
         android:textSize="22sp"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-
         app:layout_constraintBottom_toTopOf="@id/btn_finish"
-        app:layout_constraintTop_toBottomOf="@id/btn_clear"
-        />
+        app:layout_constraintLeft_toLeftOf="parent"
 
-<!--        style="@style/button_style"-->
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/btn_clear" />
+
+    <!--        style="@style/button_style"-->
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/btn_finish"
         android:layout_width="wrap_content"
@@ -166,11 +164,8 @@
         android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/btn_save"
         app:layout_constraintRight_toRightOf="parent"
-        />
-
-
+        app:layout_constraintTop_toBottomOf="@id/btn_save" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
