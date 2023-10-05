@@ -2,18 +2,26 @@ package br.com.alcoholorgasolineapp.view.ui.activity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import br.com.alcoholorgasolineapp.R;
+import br.com.alcoholorgasolineapp.RegisterActivity;
 import br.com.alcoholorgasolineapp.model.entity.LoginEntity;
+import br.com.alcoholorgasolineapp.utils.ValidateLogin;
 
-public class LoginActivity extends AppCompatActivity {
+public class LoginActivity extends AppCompatActivity  implements ValidateLogin {
 
-    private ViewHolder mViewHolder = new ViewHolder();
+
+    private EditText editEmail;
+    private EditText editPassword;
+    private Button btnSignIn;
+    private TextView btnRegister;
     private LoginEntity mLogin = new LoginEntity();
 
     @Override
@@ -21,49 +29,55 @@ public class LoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-        mViewHolder.editEmail = findViewById(R.id.edit_email);
-        mViewHolder.editPassword = findViewById(R.id.edit_password);
-        mViewHolder.btnSignIn = findViewById(R.id.btn_signIn);
-
-        mLogin.setEmail(String.valueOf(mViewHolder.editEmail.getText()));
-        mLogin.setPassword(String.valueOf(mViewHolder.editPassword.getText()));
-
-        if(mLogin.getEmail().isEmpty()){
-            System.out.println("sou o email estou em branco");
-        }
-
-        if (mLogin.getEmail() == null){
-            System.out.println("sou o email estou nulo");
-        }
-
-        if(mLogin.getPassword().isEmpty()){
-            System.out.println("estou em branco");
-        }
-
-        if (mLogin.getPassword() == null){
-            System.out.println("estou nulo");
-        }
+        editEmail = findViewById(R.id.edit_email);
+        editPassword = findViewById(R.id.edit_password);
+        btnSignIn = findViewById(R.id.btn_create_account);
+        btnRegister = findViewById(R.id.btn_register);
 
 
-
-        mViewHolder.btnSignIn.setOnClickListener(new View.OnClickListener() {
+        btnSignIn.setOnClickListener(new View.OnClickListener() {
 
             @Override
             public void onClick(View v) {
-
-                    Intent intent = new Intent(LoginActivity.this, MainActivity.class);
-                    startActivity(intent);
+                Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+                startActivity(intent);
                 }
         });
-
+        btnRegister.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(LoginActivity.this, RegisterActivity.class);
+                startActivity(intent);
+            }
+        });
     }
 
 
-
-    private static class ViewHolder {
-        private EditText editEmail;
-        private EditText editPassword;
-        private Button btnSignIn;
+    @Override
+    public LoginEntity getLoginEntityData() {
+        LoginEntity entity = new LoginEntity();
+        entity.setEmail(editEmail.getText().toString());
+        entity.setPassword(editPassword.getText().toString());
+        return entity;
     }
+
+    @Override
+    public boolean validateRegister() {
+        LoginEntity loginEntity = getLoginEntityData();
+        if(TextUtils.isEmpty(loginEntity.getEmail())){
+            editEmail.setError("Campo Email Obrigatorio");
+            return false;
+        }
+        if(TextUtils.isEmpty(loginEntity.getPassword())){
+            editPassword.setError("Campo Senha Obrigatorio");
+            return false;
+        }
+
+        //TODO: inserir metodo que busca os dados do usuario e verifica com os digitados
+
+        return true;
+    }
+
+
 }
 

@@ -14,4 +14,5 @@
     <string name="txt_forgot_password">Esqueci a senha</string>
     <string name="txt_register">Não tem Conta? Cadastra-se!</string>
     <string name="txt_loading">Loading</string>
+    <string name="txt_error_fields">Error! Verifique os campos</string>
 </resources>

@@ -2,6 +2,8 @@ package br.com.alcoholorgasolineapp.model.entity;
 
 public class LoginEntity {
 
+
+    private String name;
     private String email;
     private String password;
 
@@ -13,6 +15,14 @@ public class LoginEntity {
     public LoginEntity(String email, String password) {
         this.email = email;
         this.password = password;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 
     public String getEmail() {
