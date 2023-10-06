@@ -45,7 +45,7 @@ Este aplicativo segue o padrão de design Model-View-Controller (MVC) para separ
 
 ## Tela Principal
 
-![Tela Principal]()
+![Tela Principal](https://github.com/aironsg/alcohol_or_gasoline_app/blob/master/principal.png)
 
 
 ## Histórico de Versões
