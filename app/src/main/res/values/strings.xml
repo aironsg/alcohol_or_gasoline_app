@@ -1,3 +1,27 @@
 <resources>
     <string name="app_name">alcohol or gasoline App</string>
+    <string name="txt_title">Álcool Ou Gasolina</string>
+    <string name="txt_alcohol">R$ Preço Álcool</string>
+    <string name="txt_price_gasoline">R$ Preço Gasolina</string>
+    <string name="txt_calc">Calcular</string>
+    <string name="txt_result">Resultado</string>
+    <string name="txt_create_account">Criar Conta</string>
+    <string name="txt_btn_signIn">Entrar</string>
+    <string name="txt_forgot_password">Esqueci a senha</string>
+    <string name="txt_register">Não tem Conta? Cadastra-se!</string>
+    <string name="txt_loading">Loading</string>
+    <string name="btn_clear">Limpar</string>
+    <string name="btn_save">Salvar</string>
+    <string name="btn_finish">Finalizar</string>
+    <string name="hint_name">Nome Completo</string>
+    <string name="hint_email">E-mail</string>
+    <string name="hint_password">Senha</string>
+    <string name="hint_password_repeat">Repeti Senha</string>
+    <string name="txt_error_fields">Error! Verifique os campos</string>
+    <string name="txt_exit_app_message">Saindo do Aplicativo, até a proxima</string>
+    <string name="txt_error_validate_fields_main_activity">Erro! Preencha os campos obrigátorios</string>
+    <string name="txt_authorizationSuccess">Autorizado</string>
+    <string name="txt_error_authentication">Erro! Login não Efetuado, Verifique credenciais</string>
+    <string name="txt_created_user_success">usuario criado com sucesso!</string>
+
 </resources>
