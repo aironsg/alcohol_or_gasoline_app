@@ -29,6 +29,20 @@ Este aplicativo segue o padrão de design Model-View-Controller (MVC) para separ
 3. Clique no botão "Calcular" para obter o resultado.
 4. O resultado será exibido na tela, indicando qual combustível é mais vantajoso financeiramente com base nos preços inseridos.
 
+
+## Tela de SplashScreen
+
+![Tela de SplashScreen](images/splashscreen.png)
+
+## Tela de Login
+
+![Tela de Login](images/login.png)
+
+## Tela de Cadastro
+
+![Tela de Cadastro](images/cadastro.png)
+
+
 ## Tela Principal
 
 ![Tela Principal]()
