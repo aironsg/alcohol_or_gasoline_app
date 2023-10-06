@@ -36,7 +36,7 @@ Este aplicativo segue o padrão de design Model-View-Controller (MVC) para separ
 
 ## Tela de Login
 
-![Tela de Login](images/login.png)
+![Tela de Login](https://github.com/aironsg/alcohol_or_gasoline_app/blob/master/login.png)
 
 ## Tela de Cadastro
 
