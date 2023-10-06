@@ -10,19 +10,19 @@ import android.widget.Button;
 import android.widget.EditText;
 
 import br.com.alcoholorgasolineapp.R;
+import br.com.alcoholorgasolineapp.controller.LoginController;
 
 @SuppressLint("CustomSplashScreen")
 public class SplashScreenActivity extends AppCompatActivity {
 
-
+    private LoginController controller = new LoginController();;
+    private Boolean isLoggedIn = false;
+    private Intent intent;
     public static final int TIME_OUT_SPLASH_SCREEN = 3000;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash_screen);
-
-
-
         loadApp();
     }
 
@@ -30,10 +30,20 @@ public class SplashScreenActivity extends AppCompatActivity {
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
-                Intent intent = new Intent(SplashScreenActivity.this, LoginActivity.class); 
-                startActivity(intent);
+                authenticateLogin();
             }
         }, TIME_OUT_SPLASH_SCREEN);
+    }
+
+    private void authenticateLogin(){
+        isLoggedIn =  controller.authenticationLogin(getApplicationContext());
+        if(isLoggedIn){
+            intent = new Intent(SplashScreenActivity.this, MainActivity.class);
+            startActivity(intent);
+        }else{
+            intent = new Intent(SplashScreenActivity.this, LoginActivity.class);
+            startActivity(intent);
+        }
     }
 
 

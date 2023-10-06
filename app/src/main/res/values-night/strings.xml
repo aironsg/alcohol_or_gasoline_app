@@ -15,4 +15,9 @@
     <string name="txt_register">Não tem Conta? Cadastra-se!</string>
     <string name="txt_loading">Loading</string>
     <string name="txt_error_fields">Error! Verifique os campos</string>
+    <string name="txt_exit_app_message">Saindo do Aplicativo, até a proxima</string>
+    <string name="txt_error_validate_fields_main_activity">Erro! Preencha os campos obrigátorios</string>
+    <string name="txt_authorizationSuccess">Autorizado</string>
+    <string name="txt_error_authentication">Erro! Login não Efetuado, Verifique credenciais</string>
+    <string name="txt_created_user_success">usuario criado com sucesso!</string>
 </resources>

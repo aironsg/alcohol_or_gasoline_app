@@ -11,16 +11,16 @@ public class LoginPreferenceData {
 
     private static LoginPreferenceData instance;
 
-    LoginEntity login;
+    LoginEntity entity;
 
 
-    public LoginPreferenceData(LoginEntity login) {
-        this.login = login;
+    public LoginPreferenceData(LoginEntity entity) {
+        this.entity = entity;
     }
 
     private LoginPreferenceData(Context context) {
         preferences = context.getSharedPreferences(Constants.LOGIN_PREFERENCE, Context.MODE_PRIVATE);
-        this.login = new LoginEntity();
+        this.entity = new LoginEntity();
     }
 
     public static synchronized LoginPreferenceData getInstance(Context context) {
@@ -30,12 +30,20 @@ public class LoginPreferenceData {
         return instance;
     }
 
-    public void saveStudent(LoginEntity login) {
+    public void saveLogin(LoginEntity entityLogin) {
         SharedPreferences.Editor save = preferences.edit();
-        save.putString("name", login.getName());
-        save.putString("email", login.getEmail());
-        save.putString("password", login.getPassword());
+        entity = entityLogin;
+        save.putString("name", entity.getName());
+        save.putString("email", entity.getEmail());
+        save.putString("password", entity.getPassword());
         save.apply();
+    }
+
+    public LoginEntity findLogin() {
+        entity = new LoginEntity();
+        entity.setEmail(preferences.getString("name", "NA"));
+        entity.setPassword(preferences.getString("password", "NA"));
+        return entity;
     }
 
 }

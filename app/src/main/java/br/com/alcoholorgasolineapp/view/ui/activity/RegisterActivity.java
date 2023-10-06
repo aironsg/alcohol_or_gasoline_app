@@ -1,4 +1,4 @@
-package br.com.alcoholorgasolineapp;
+package br.com.alcoholorgasolineapp.view.ui.activity;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -11,6 +11,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import br.com.alcoholorgasolineapp.R;
 import br.com.alcoholorgasolineapp.controller.LoginController;
 import br.com.alcoholorgasolineapp.model.entity.LoginEntity;
 import br.com.alcoholorgasolineapp.model.repository.LoginRepository;
@@ -36,41 +37,32 @@ public class RegisterActivity extends AppCompatActivity implements ValidateLogin
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
 
-        //TODO inserir a logica para registrar um novo usuario.
+
 
         editTextName = findViewById(R.id.edit_name);
         editTextEmail = findViewById(R.id.edit_email);
         editTextPassword = findViewById(R.id.edit_password);
         editTextRepeatPassword = findViewById(R.id.edit_password_repeat);
         btnRegister = findViewById(R.id.btn_create_account);
-        isValidate = validateRegister();
+
 
 
         btnRegister.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                isValidate = validateRegister();
                 if (isValidate) {
-                    clearFields();
                     saveAccount();
                 } else {
                     Toast.makeText(getApplicationContext(), R.string.txt_error_fields, Toast.LENGTH_LONG).show();
                 }
+                    clearFields();
             }
         });
 
     }
 
-    private void saveAccount() {
-        new Handler().postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                controller.save(getLoginEntityData(), getApplicationContext());
-                Intent intent = new Intent(getApplicationContext(), MainActivity.class);
-                startActivity(intent);
 
-            }
-        }, TIME_OUT_SPLASH_SCREEN);
-    }
 
 
     private void clearFields() {
@@ -114,6 +106,18 @@ public class RegisterActivity extends AppCompatActivity implements ValidateLogin
             return false;
         }
         return true;
+    }
+
+    private void saveAccount() {
+        new Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                controller.save(getLoginEntityData(), getApplicationContext());
+                Toast.makeText(getApplicationContext(), R.string.txt_created_user_success,Toast.LENGTH_LONG).show();
+                Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+                startActivity(intent);
+            }
+        }, TIME_OUT_SPLASH_SCREEN);
     }
 
 
