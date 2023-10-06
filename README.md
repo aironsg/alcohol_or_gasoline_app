@@ -40,7 +40,7 @@ Este aplicativo segue o padrão de design Model-View-Controller (MVC) para separ
 
 ## Tela de Cadastro
 
-![Tela de Cadastro](images/cadastro.png)
+![Tela de Cadastro](https://github.com/aironsg/alcohol_or_gasoline_app/blob/master/cadastro.png)
 
 
 ## Tela Principal
