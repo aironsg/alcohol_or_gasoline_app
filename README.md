@@ -32,7 +32,7 @@ Este aplicativo segue o padrão de design Model-View-Controller (MVC) para separ
 
 ## Tela de SplashScreen
 
-![Tela de SplashScreen](images/splashscreen.png)
+![Tela de SplashScreen](https://github.com/aironsg/alcohol_or_gasoline_app/blob/master/splash.png)
 
 ## Tela de Login
 
