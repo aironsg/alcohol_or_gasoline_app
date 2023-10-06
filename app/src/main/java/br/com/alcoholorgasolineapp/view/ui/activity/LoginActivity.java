@@ -11,6 +11,9 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.AppCompatButton;
+import androidx.appcompat.widget.AppCompatEditText;
+import androidx.appcompat.widget.AppCompatTextView;
 
 import br.com.alcoholorgasolineapp.R;
 import br.com.alcoholorgasolineapp.controller.LoginController;
@@ -20,10 +23,10 @@ import br.com.alcoholorgasolineapp.utils.ValidateLogin;
 public class LoginActivity extends AppCompatActivity implements ValidateLogin {
 
 
-    private EditText editEmail;
-    private EditText editPassword;
-    private Button btnSignIn;
-    private TextView btnRegister;
+    private AppCompatEditText editEmail;
+    private AppCompatEditText editPassword;
+    private AppCompatButton btnSignIn;
+    private AppCompatTextView btnRegister;
     private LoginController controller = new LoginController();
     private Intent intent;
 
@@ -41,14 +44,6 @@ public class LoginActivity extends AppCompatActivity implements ValidateLogin {
         btnRegister = findViewById(R.id.btn_register);
 
 
-        btnSignIn.setOnClickListener(new View.OnClickListener() {
-
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(LoginActivity.this, MainActivity.class);
-                startActivity(intent);
-            }
-        });
 
         btnSignIn.setOnClickListener(new View.OnClickListener() {
             String email;
@@ -80,6 +75,7 @@ public class LoginActivity extends AppCompatActivity implements ValidateLogin {
         boolean isValidateLogin = controller.findLogin(email, password, context);
         if (isValidateLogin) {
             intent = new Intent(LoginActivity.this, MainActivity.class);
+            startActivity(intent);
             Toast.makeText(context, R.string.txt_authorizationSuccess, Toast.LENGTH_SHORT).show();
         } else {
             Toast.makeText(context, R.string.txt_error_authentication, Toast.LENGTH_SHORT).show();

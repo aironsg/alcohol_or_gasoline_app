@@ -1,6 +1,8 @@
 package br.com.alcoholorgasolineapp.view.ui.activity;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.AppCompatButton;
+import androidx.appcompat.widget.AppCompatEditText;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -22,11 +24,11 @@ import br.com.alcoholorgasolineapp.view.ui.activity.SplashScreenActivity;
 
 public class RegisterActivity extends AppCompatActivity implements ValidateLogin {
 
-    private EditText editTextName;
-    private EditText editTextEmail;
-    private EditText editTextPassword;
-    private EditText editTextRepeatPassword;
-    private Button btnRegister;
+    private AppCompatEditText editTextName;
+    private AppCompatEditText editTextEmail;
+    private AppCompatEditText editTextPassword;
+    private AppCompatEditText editTextRepeatPassword;
+    private AppCompatButton btnRegister;
     public static final int TIME_OUT_SPLASH_SCREEN = 3000;
     private LoginController controller = new LoginController();
 
@@ -109,10 +111,11 @@ public class RegisterActivity extends AppCompatActivity implements ValidateLogin
     }
 
     private void saveAccount() {
+        LoginEntity entity = getLoginEntityData();
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
-                controller.save(getLoginEntityData(), getApplicationContext());
+                controller.save(entity, getApplicationContext());
                 Toast.makeText(getApplicationContext(), R.string.txt_created_user_success,Toast.LENGTH_LONG).show();
                 Intent intent = new Intent(getApplicationContext(), MainActivity.class);
                 startActivity(intent);

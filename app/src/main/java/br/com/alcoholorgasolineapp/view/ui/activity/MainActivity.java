@@ -2,8 +2,13 @@ package br.com.alcoholorgasolineapp.view.ui.activity;
 
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.AppCompatButton;
+import androidx.appcompat.widget.AppCompatEditText;
+import androidx.appcompat.widget.AppCompatImageView;
+import androidx.appcompat.widget.AppCompatTextView;
 
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.text.TextUtils;
@@ -20,13 +25,14 @@ import br.com.alcoholorgasolineapp.utils.FuelUtil;
 public class MainActivity extends AppCompatActivity {
 
     public static final int TIMEOUT_EXIT_APPLICATION = 2000;
-    private EditText editPriceAlcohol;
-    private EditText editPricegasoline;
-    private TextView txtResult;
-    private Button btnCalculate;
-    private Button btnClear;
-    private Button btnSave;
-    private Button btnFinished;
+    private AppCompatEditText editPriceAlcohol;
+    private AppCompatEditText editPricegasoline;
+    private AppCompatTextView txtResult;
+    private AppCompatButton btnCalculate;
+    private AppCompatButton btnClear;
+    private AppCompatButton btnSave;
+    private AppCompatButton btnFinished;
+    private AppCompatImageView btnLogout;
     private Boolean isValidate = false;
 
 
@@ -43,6 +49,7 @@ public class MainActivity extends AppCompatActivity {
         btnClear = findViewById(R.id.btn_clear);
         btnSave = findViewById(R.id.btn_save);
         btnFinished = findViewById(R.id.btn_finish);
+        btnLogout = findViewById(R.id.btn_logout);
 
         btnFinished.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -77,10 +84,23 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
+
+        btnLogout.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+                logout();
+            }
+        });
     }
 
 
 
+    private void logout(){
+        finish();
+        Intent intent = new Intent(MainActivity.this, LoginActivity.class);
+        startActivity(intent);
+    }
 
 
     private void clearField() {

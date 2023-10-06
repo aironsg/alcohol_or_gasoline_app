@@ -24,10 +24,8 @@ public class LoginController implements LoginRepository {
         data = LoginPreferenceData.getInstance(context);
         loginEntity = data.findLogin();
         if (loginEntity.getEmail().equals(email) && loginEntity.getPassword().equals(password)) {
-
             return true;
         } else {
-
             return false;
         }
     }

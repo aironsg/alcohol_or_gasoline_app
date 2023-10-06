@@ -41,7 +41,7 @@ public class LoginPreferenceData {
 
     public LoginEntity findLogin() {
         entity = new LoginEntity();
-        entity.setEmail(preferences.getString("name", "NA"));
+        entity.setEmail(preferences.getString("email", "NA"));
         entity.setPassword(preferences.getString("password", "NA"));
         return entity;
     }
